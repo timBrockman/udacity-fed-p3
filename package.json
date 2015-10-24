@@ -1,0 +1,23 @@
+{
+  "name": "udacity-fed-p3",
+  "version": "1.0.0",
+  "description": "project 3 for udacity front end developer degree",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timBrockman/udacity-fed-p3.git"
+  },
+  "author": "timBrockman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timBrockman/udacity-fed-p3/issues"
+  },
+  "homepage": "https://github.com/timBrockman/udacity-fed-p3#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0"
+  }
+}
