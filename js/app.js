@@ -29,7 +29,9 @@ var Player = function(){
 };
 Player.prototype.update = function(){};
 Player.prototype.render = function(){};
-Player.prototype.handleInput = function(){};
+Player.prototype.handleInput = function(direction){
+    console.log(direction);
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
