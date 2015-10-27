@@ -8,11 +8,12 @@ var Enemy = function(loc, sprite) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = sprite || 'images/enemy-bug.png';
-    this.x = loc.x || 1;
-    this.y = loc.y || 2;
+    this.x = loc.x || 0;
+    this.y = loc.y || 70;
     this.or = loc.orientation || 2; //1:up 2:right 3:down 4:left
-    this.speed = loc.speed || 1;
+    this.speed = loc.speed || 100;
 };
+
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
