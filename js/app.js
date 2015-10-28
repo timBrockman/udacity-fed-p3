@@ -23,8 +23,13 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     switch(this.orientation){
         case 2:
-                this.x = this.speed * dt;
+            this.x = this.speed * dt;
+            break;
+        case 4:
+            this.x = -1 * this.speed * dt;
+            break;
     }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -53,7 +58,19 @@ Player.prototype.handleInput = function(direction){
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
+
 allEnemies.push( new Enemy());
+allEnemies.push( new Enemy({
+    x:0,
+    y:150,
+    speed:150
+}));
+allEnemies.push( new Enemy({
+    x:0,
+    y:230,
+    speed:50
+}));
+
 var player = new Player();
 
 
