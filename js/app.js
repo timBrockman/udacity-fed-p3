@@ -21,15 +21,17 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    switch(this.orientation){
+    /*switch(this.orientation){
         case 2:
-            this.x = this.speed * dt;
+            this.x = this.x + (this.speed * dt);
             break;
         case 4:
-            this.x = -1 * this.speed * dt;
+            this.x = this.x + (-1 * this.speed * dt);
             break;
-    }
-
+    }*/
+    this.x = this.x + (this.speed * dt);
+    console.log(this.x);
+    this.render;
 };
 
 // Draw the enemy on the screen, required method for game
