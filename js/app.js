@@ -21,16 +21,25 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    /*switch(this.orientation){
+    switch(this.or){
         case 2:
             this.x = this.x + (this.speed * dt);
             break;
         case 4:
             this.x = this.x + (-1 * this.speed * dt);
             break;
-    }*/
-    this.x = this.x + (this.speed * dt);
-    console.log(this.x);
+    }
+// wall bounce
+    if((this.x <= 5)&&(this.or === 4)){
+        this.or = 2;
+    }    
+    if((this.x >= 400)&&(this.or === 2)){
+        this.or = 4;
+    }    
+
+//    this.x = this.x + (this.speed * dt);
+    
+    //console.log(this.x);
     this.render;
 };
 
