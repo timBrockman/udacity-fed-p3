@@ -37,8 +37,15 @@ Enemy.prototype.update = function(dt) {
         this.or = 4;
     }    
 
-//    this.x = this.x + (this.speed * dt);
-    
+    //this.x = this.x + (this.speed * dt);
+    // player colision
+    if((player.x + 100 >= this.x)
+        &&(this.x + 100 >= player.x)
+        &&(player.y + 100 >= this.y)
+        &&(this.y + 100 >= player.y)){
+        console.log('colision');
+    }
+
     //console.log(this.x);
     this.render;
 };
@@ -56,10 +63,14 @@ var Player = function(loc, sprite){
         var loc = {};
     }
     this.sprite = sprite || 'images/char-boy.png';
-    this.x = loc.x||5;
-    this.y = loc.y||5;
+    this.x = loc.x || 200;
+    this.y = loc.y || 500;
 };
-Player.prototype.update = function(){};
+Player.prototype.update = function(){
+    switch(){
+        case :
+    }
+};
 Player.prototype.render = function(){};
 Player.prototype.handleInput = function(direction){
     console.log(direction);
