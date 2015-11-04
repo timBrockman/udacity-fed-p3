@@ -65,13 +65,24 @@ var Player = function(loc, sprite){
     this.sprite = sprite || 'images/char-boy.png';
     this.x = loc.x || 200;
     this.y = loc.y || 500;
+    this.or = loc.orientation || 1;
 };
-Player.prototype.update = function(){
-    switch(){
-        case :
+Player.prototype.update = function(dt){
+    switch(this.or){
+        case 1:
+        break;
+        case 2:
+        break;
+        case 3:
+        break;
+        case 4:
+        break;
     }
+    this.render;
 };
-Player.prototype.render = function(){};
+Player.prototype.render = function(){
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 Player.prototype.handleInput = function(direction){
     console.log(direction);
 };
