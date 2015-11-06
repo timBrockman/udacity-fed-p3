@@ -64,27 +64,51 @@ var Player = function(loc, sprite){
     }
     this.sprite = sprite || 'images/char-boy.png';
     this.x = loc.x || 200;
-    this.y = loc.y || 500;
+    this.y = loc.y || 400;
     this.or = loc.orientation || 1;
+
 };
 Player.prototype.update = function(dt){
-    switch(this.or){
+    /*switch(this.or){
         case 1:
+            this.y = this.y - (100);
         break;
         case 2:
+            this.x = this.x + (100);
         break;
         case 3:
+            this.y = this.y + (100);
         break;
         case 4:
+            this.x = this.x - (100);
         break;
-    }
+    }*/
     this.render;
 };
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 Player.prototype.handleInput = function(direction){
+    
     console.log(direction);
+    switch(direction){
+        case 'up':
+            this.or = 1;
+            this.y = this.y - (10);
+            break;
+        case 'right':
+            this.or = 2;
+            this.x = this.x + (10);
+            break;
+        case 'down':
+            this.or = 3;
+            this.y = this.y + (10);
+            break;
+        case 'left':
+            this.or = 4;
+            this.x = this.x - (10);
+            break;
+    }
 };
 
 // Now instantiate your objects.
@@ -103,7 +127,6 @@ allEnemies.push( new Enemy({
     y:230,
     speed:50
 }));
-
 var player = new Player();
 
 
