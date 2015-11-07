@@ -2,11 +2,15 @@
 var Enemy = function(loc, sprite) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+    
+    //create location object if none present
     if(!loc){
         var loc = {};
     }
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+
+    //set properties or default
     this.sprite = sprite || 'images/enemy-bug.png';
     this.x = loc.x || 0;
     this.y = loc.y || 70;
@@ -29,21 +33,26 @@ Enemy.prototype.update = function(dt) {
             this.x = this.x + (-1 * this.speed * dt);
             break;
     }
-// wall bounce
+
+// wall bounce feature
     if((this.x <= 5)&&(this.or === 4)){
         this.or = 2;
+        this.speed = Math.random()* (150) + 75;
     }    
     if((this.x >= 400)&&(this.or === 2)){
         this.or = 4;
+        this.speed = Math.random()* (150) + 75;
     }    
 
     //this.x = this.x + (this.speed * dt);
     // player colision
-    if((player.x + 100 >= this.x)
-        &&(this.x + 100 >= player.x)
-        &&(player.y + 100 >= this.y)
-        &&(this.y + 100 >= player.y)){
-        console.log('colision');
+    if((player.x + 80 >= this.x)
+        &&(this.x + 80 >= player.x)
+        &&(player.y + 50 >= this.y)
+        &&(this.y + 50 >= player.y)){
+        //console.log('colision');
+        player.x = 200;
+        player.y = 400;
     }
 
     //console.log(this.x);
@@ -90,24 +99,29 @@ Player.prototype.render = function(){
 };
 Player.prototype.handleInput = function(direction){
     
-    console.log(direction);
+    //console.log(direction);
     switch(direction){
         case 'up':
             this.or = 1;
-            this.y = ((this.y - (25))>= 0)?(this.y - (25)):400;
-            console.log(this.y);
+            if((this.y - 50) < 10){
+                this.y = 400;
+                this.x = 200;
+            }else{
+                this.y = this.y-80
+            }
+            //console.log(this.y);
             break;
         case 'right':
             this.or = 2;
-            this.x = ((this.x + (25))<= 400)?(this.x + (25)):400;
+            this.x = ((this.x + (100))<= 400)?(this.x + (100)):400;
             break;
         case 'down':
             this.or = 3;
-            this.y = ((this.y + (25))<= 400)?(this.y + (25)):400;
+            this.y = ((this.y + (80))<= 400)?(this.y + (80)):400;
             break;
         case 'left':
             this.or = 4;
-            this.x = ((this.x - (25))>= 0)?(this.x - (25)):0;
+            this.x = ((this.x - (100))>= 0)?(this.x - (100)):0;
             break;
     }
 };
