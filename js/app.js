@@ -94,19 +94,20 @@ Player.prototype.handleInput = function(direction){
     switch(direction){
         case 'up':
             this.or = 1;
-            this.y = this.y - (10);
+            this.y = ((this.y - (25))>= 0)?(this.y - (25)):400;
+            console.log(this.y);
             break;
         case 'right':
             this.or = 2;
-            this.x = this.x + (10);
+            this.x = ((this.x + (25))<= 400)?(this.x + (25)):400;
             break;
         case 'down':
             this.or = 3;
-            this.y = this.y + (10);
+            this.y = ((this.y + (25))<= 400)?(this.y + (25)):400;
             break;
         case 'left':
             this.or = 4;
-            this.x = this.x - (10);
+            this.x = ((this.x - (25))>= 0)?(this.x - (25)):0;
             break;
     }
 };
