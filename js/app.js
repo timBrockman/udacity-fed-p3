@@ -75,23 +75,43 @@ var Player = function(loc, sprite){
     this.x = loc.x || 200;
     this.y = loc.y || 400;
     this.or = loc.orientation || 1;
+    this.desty = this.y;
+    this.destx = this.x;    
 
 };
 Player.prototype.update = function(dt){
-    /*switch(this.or){
+    //animate player move
+    switch(this.or){
         case 1:
-            this.y = this.y - (100);
-        break;
+            if(this.y > this.desty){
+                this.y -= Math.ceil(160 * dt);
+                //console.log(dt);
+            }else{
+                this.desty = this.y;
+            }
+            break;
         case 2:
-            this.x = this.x + (100);
-        break;
+            if(this.x < this.destx){
+               this.x += Math.ceil(200 * dt);
+            }else{
+              this.destx = this.x;
+            }
+            break;
         case 3:
-            this.y = this.y + (100);
-        break;
+            if(this.y < this.desty){
+                this.y += Math.ceil(160 * dt);
+            }else{
+                this.desty = this.y;
+            }
+            break;
         case 4:
-            this.x = this.x - (100);
-        break;
-    }*/
+            if(this.x > this.destx){
+                this.x -= Math.ceil(200 * dt);
+            }else{
+                this.destx = this.x;
+            }
+            break;
+    }
     this.render;
 };
 Player.prototype.render = function(){
@@ -107,23 +127,40 @@ Player.prototype.handleInput = function(direction){
                 this.y = 400;
                 this.x = 200;
             }else{
-                this.y = this.y-80
+                this.desty = this.y-80;
             }
             //console.log(this.y);
             break;
         case 'right':
             this.or = 2;
-            this.x = ((this.x + (100))<= 400)?(this.x + (100)):400;
+            if(this.x + 100 <= 400){
+                this.destx = this.x + 100;
+            }else{
+                this.destx = 400;
+            }
+            //this.x = ((this.x + (100))<= 400)?(this.x + (100)):400;
             break;
         case 'down':
             this.or = 3;
-            this.y = ((this.y + (80))<= 400)?(this.y + (80)):400;
+            if(this.y + 80 <= 400){
+                this.desty = this.y + 80;
+            }else{
+                this.desty = 400;
+            }
+            //this.y = ((this.y + (80))<= 400)?(this.y + (80)):400;
             break;
         case 'left':
             this.or = 4;
-            this.x = ((this.x - (100))>= 0)?(this.x - (100)):0;
+            if(this.x - 100 >= 0){
+                this.destx = this.x - 100;
+            }else{
+                this.destx = 0;
+            }
+            //this.x = ((this.x - (100))>= 0)?(this.x - (100)):0;
             break;
     }
+    console.log(this.destx + ': ' +this.x);
+    console.log(this.desty + ': ' +this.y);
 };
 
 // Now instantiate your objects.
