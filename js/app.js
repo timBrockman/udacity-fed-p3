@@ -53,6 +53,8 @@ Enemy.prototype.update = function(dt) {
         //console.log('colision');
         player.x = 200;
         player.y = 400;
+        player.destx = 200;
+        player.desty = 400;
     }
 
     //console.log(this.x);
