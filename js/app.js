@@ -126,6 +126,8 @@ Player.prototype.handleInput = function(direction){
             if((this.y - 50) < 10){
                 this.y = 400;
                 this.x = 200;
+                this.desty = 400;
+                this.destx = 200;
             }else{
                 this.desty = this.y-80;
             }
