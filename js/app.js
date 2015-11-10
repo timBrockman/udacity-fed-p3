@@ -45,12 +45,12 @@ Enemy.prototype.update = function(dt) {
     }    
 
     //this.x = this.x + (this.speed * dt);
-    // player colision
+    // player collision
     if((player.x + 80 >= this.x)
         &&(this.x + 80 >= player.x)
         &&(player.y + 50 >= this.y)
         &&(this.y + 50 >= player.y)){
-        //console.log('colision');
+        //console.log('collision');
         player.x = 200;
         player.y = 400;
         player.destx = 200;
@@ -131,14 +131,14 @@ Player.prototype.handleInput = function(direction){
                 this.desty = 400;
                 this.destx = 200;
             }else{
-                this.desty = this.y-80;
+                this.desty = this.y - (80);
             }
             //console.log(this.y);
             break;
         case 'right':
             this.or = 2;
             if(this.x + 100 <= 400){
-                this.destx = this.x + 100;
+                this.destx = this.x + (100);
             }else{
                 this.destx = 400;
             }
@@ -147,7 +147,7 @@ Player.prototype.handleInput = function(direction){
         case 'down':
             this.or = 3;
             if(this.y + 80 <= 400){
-                this.desty = this.y + 80;
+                this.desty = this.y + (80);
             }else{
                 this.desty = 400;
             }
@@ -156,7 +156,7 @@ Player.prototype.handleInput = function(direction){
         case 'left':
             this.or = 4;
             if(this.x - 100 >= 0){
-                this.destx = this.x - 100;
+                this.destx = this.x - (100);
             }else{
                 this.destx = 0;
             }
