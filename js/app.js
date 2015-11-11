@@ -4,9 +4,7 @@ var Enemy = function(loc, sprite) {
     // we've provided one for you to get started
     
     //create location object if none present
-    if(!loc){
-        var loc = {};
-    }
+    if(!loc){loc = {};}
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
 
@@ -46,10 +44,7 @@ Enemy.prototype.update = function(dt) {
 
     //this.x = this.x + (this.speed * dt);
     // player collision
-    if((player.x + 80 >= this.x)
-        &&(this.x + 80 >= player.x)
-        &&(player.y + 50 >= this.y)
-        &&(this.y + 50 >= player.y)){
+    if((player.x + 80 >= this.x)&&(this.x + 80 >= player.x)&&(player.y + 50 >= this.y)&&(this.y + 50 >= player.y)){
         //console.log('collision');
         player.x = 200;
         player.y = 400;
@@ -58,7 +53,7 @@ Enemy.prototype.update = function(dt) {
     }
 
     //console.log(this.x);
-    this.render;
+    this.render();
 };
 
 // Draw the enemy on the screen, required method for game
@@ -70,9 +65,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(loc, sprite){
-    if(!loc){
-        var loc = {};
-    }
+    if(!loc){loc = {};}
     this.sprite = sprite || 'images/char-boy.png';
     this.x = loc.x || 200;
     this.y = loc.y || 400;
@@ -114,7 +107,7 @@ Player.prototype.update = function(dt){
             }
             break;
     }
-    this.render;
+    this.render();
 };
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
