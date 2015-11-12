@@ -3,7 +3,7 @@ var Enemy = function(loc, sprite) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     
-    //create location object if none present
+    //assign location object if none present
     if(!loc){loc = {};}
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -121,7 +121,7 @@ Player.prototype.handleInput = function(direction){
             }else{
                 this.desty = this.desty - (80);
             }
-            if(30 > this.y){
+            if(70 > this.y){
                 this.y = 400;
                 this.x = 200;
                 this.desty = 400;
