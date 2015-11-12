@@ -80,7 +80,6 @@ Player.prototype.update = function(dt){
         case 1:
             if(this.y > this.desty){
                 this.y -= Math.ceil(160 * dt);
-                //console.log(dt);
             }else{
                 this.desty = this.y;
             }
@@ -114,24 +113,25 @@ Player.prototype.render = function(){
 };
 Player.prototype.handleInput = function(direction){
     
-    //console.log(direction);
     switch(direction){
         case 'up':
             this.or = 1;
-            if((this.y - 50) < 10){
+            if(this.desty < 10){
+                this.desty = 10;
+            }else{
+                this.desty = this.desty - (80);
+            }
+            if(10 > this.y){
                 this.y = 400;
                 this.x = 200;
                 this.desty = 400;
                 this.destx = 200;
-            }else{
-                this.desty = this.y - (80);
             }
-            //console.log(this.y);
             break;
         case 'right':
             this.or = 2;
-            if(this.x + 100 <= 400){
-                this.destx = this.x + (100);
+            if(this.destx + 100 <= 400){
+                this.destx = this.destx + (100);
             }else{
                 this.destx = 400;
             }
@@ -139,8 +139,8 @@ Player.prototype.handleInput = function(direction){
             break;
         case 'down':
             this.or = 3;
-            if(this.y + 80 <= 400){
-                this.desty = this.y + (80);
+            if(this.desty + 80 <= 400){
+                this.desty = this.desty + (80);
             }else{
                 this.desty = 400;
             }
@@ -148,8 +148,8 @@ Player.prototype.handleInput = function(direction){
             break;
         case 'left':
             this.or = 4;
-            if(this.x - 100 >= 0){
-                this.destx = this.x - (100);
+            if(this.destx - 100 >= 0){
+                this.destx = this.destx - (100);
             }else{
                 this.destx = 0;
             }
