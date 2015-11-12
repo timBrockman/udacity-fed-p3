@@ -116,12 +116,12 @@ Player.prototype.handleInput = function(direction){
     switch(direction){
         case 'up':
             this.or = 1;
-            if(this.desty < 30){
-                this.desty = 30;
+            if(this.desty < 80){
+                this.desty = 80;
             }else{
                 this.desty = this.desty - (80);
             }
-            if(70 > this.y){
+            if(80 > this.y){
                 this.y = 400;
                 this.x = 200;
                 this.desty = 400;
